@@ -1,207 +1,93 @@
 # NexusOne
 
-Mental Health Practice Management Platform for Psychologists and Therapy Centers.
+Mental health practice management for psychologists and therapy centers in the Dominican Republic.
 
-## Mission
+**Mission:** Help psychologists spend less time managing their practice and more time helping patients.
 
-Help psychologists spend less time managing their practice and more time helping patients.
+## What We're Building
 
----
+A SaaS platform that unifies patient management, scheduling, session notes, payments, and WhatsApp reminders — starting with **solo psychologists** in Santo Domingo.
 
-# Features
+**Current phase:** [Phase 0 — Validation](docs/validation/phase-0-plan.md)
 
-## Patients
+## Documentation
 
-- Patient profiles
-- Session history
-- Secure records
-- Document management
+| Document | Audience | Description |
+|----------|----------|-------------|
+| [docs/](docs/README.md) | Everyone | Full documentation hub |
+| [PRD.md](PRD.md) | Founders, pilots | Product requirements summary |
+| [ROADMAP.md](ROADMAP.md) | Founders, investors | Phases, metrics, gates |
 
-## Scheduling
+### Key Docs
 
-- Calendar management
-- Recurring sessions
-- Appointment reminders
-- Smart waitlists
+- [Workflows](docs/workflows/daily-practice-loop.md) — daily loop, patient lifecycle, cancellations
+- [Personas](docs/product/personas.md) — who we're building for
+- [MVP Scope](docs/product/mvp-scope.md) — Phase 1 feature boundary
+- [Interview Guide](docs/validation/interview-guide.md) — Phase 0 validation
 
-## Financial
+## Tech Stack
 
-- Payment tracking
-- Revenue dashboards
-- Outstanding balances
+### Current (Built)
 
-## Communication
+| Layer | Technology |
+|-------|------------|
+| Monorepo | pnpm workspaces + Turbo |
+| Frontend | Next.js 16, React 19, TypeScript |
+| UI | Tailwind CSS 4, shadcn/ui (`@workspace/ui`) |
+| Tooling | ESLint, Prettier |
 
-- WhatsApp reminders
-- Cancellation workflows
-- Waitlist notifications
+### Planned (Phase 1)
 
----
+| Layer | Technology |
+|-------|------------|
+| Database | PostgreSQL via Supabase |
+| ORM | Drizzle |
+| Auth | Supabase Auth (email + Google) |
+| Messaging | WhatsApp Business API |
+| Hosting | Vercel |
 
-# Long-Term Vision
+See [Tech Stack](docs/architecture/tech-stack.md) for details and open decisions.
 
-NexusOne will evolve into a complete mental health ecosystem including:
+## Project Structure
 
-- Practice management
-- Patient acquisition
-- Teletherapy
-- AI assistance
-- Marketplace
-
----
-
-# Tech Stack
-
-## Frontend
-
-- Next.js
-- TypeScript
-- Tailwind
-- shadcn/ui
-
-## Backend
-
-- Bun
-- TypeScript
-- Hono
-
-## Database
-
-- PostgreSQL
-- Drizzle ORM
-
-## Infrastructure
-
-- Supabase
-- Vercel
-
-## Messaging
-
-- WhatsApp Business API
-
----
-
-# Architecture
-
-Frontend
-
-Next.js App Router
-
-↓
-
-Backend API
-
-Hono
-
-↓
-
-PostgreSQL
-
-↓
-
-WhatsApp Services
-
----
-
-# Development
-
-## Install
-
-```bash
-bun install
+```
+nexus-one/
+├── apps/
+│   └── web/                  # Next.js application
+├── packages/
+│   ├── ui/                   # Shared shadcn/ui components
+│   ├── eslint-config/        # Shared ESLint configuration
+│   └── typescript-config/    # Shared TypeScript configuration
+├── docs/                     # Product & technical documentation
+├── PRD.md
+├── ROADMAP.md
+└── package.json
 ```
 
-## Run
+## Development
+
+**Requirements:** Node.js ≥ 20, pnpm 10
 
 ```bash
-bun dev
+pnpm install     # Install dependencies
+pnpm dev         # Start development servers
+pnpm build       # Production build
+pnpm lint        # Lint all packages
+pnpm typecheck   # TypeScript check
 ```
 
-## Build
+## Business Model
 
-```bash
-bun run build
+| Plan | Price | Target |
+|------|-------|--------|
+| Individual | RD$700–1,200/month | Solo psychologists |
+| Center | RD$4,000–10,000/month | Therapy centers (Phase 3) |
+| Marketplace | Commission per booking | Phase 4 |
+
+## Long-Term Vision
+
+```
+Practice Management → Therapy Centers → Online Booking → Marketplace → AI Platform
 ```
 
----
-
-# Project Structure
-
-src/
-
-├── app/
-
-├── components/
-
-├── features/
-
-│ ├── patients/
-
-│ ├── scheduling/
-
-│ ├── notes/
-
-│ ├── payments/
-
-│ └── reminders/
-
-├── db/
-
-├── api/
-
-└── lib/
-
----
-
-# Core Domains
-
-Patient Management
-
-Appointment Scheduling
-
-Session Documentation
-
-Financial Tracking
-
-Communication
-
-Analytics
-
----
-
-# Road to Marketplace
-
-Step 1:
-Practice Management SaaS
-
-Step 2:
-Therapy Centers
-
-Step 3:
-Online Booking
-
-Step 4:
-Therapist Marketplace
-
-Step 5:
-AI-Powered Mental Health Platform
-
----
-
-# Business Model
-
-## Individual Plan
-
-RD$700 - RD$1,200/month
-
-## Center Plan
-
-RD$4,000 - RD$10,000/month
-
-## Marketplace Commission
-
-Per patient booking
-
-## Future
-
-AI Premium Features
+See [Vision](docs/product/vision.md) and [Roadmap](ROADMAP.md).

@@ -1,264 +1,214 @@
 # NexusOne Roadmap
 
----
+**Last updated:** 2026-06-07
 
-# Phase 0 - Validation
-
-Duration:
-2-4 weeks
-
-Goals:
-
-- Interview 20 psychologists
-- Interview 5 therapy centers
-- Validate pricing
-- Validate pain points
-
-Deliverables:
-
-- Customer interviews
-- Pricing model
-- MVP scope
-
-Success Criteria:
-
-- 10 psychologists interested
-- 3 pilot customers
+Each phase has a **gate** — criteria that must be met before the next phase begins. Detailed docs in [docs/](docs/README.md).
 
 ---
 
-# Phase 1 - MVP
+## Phase 0 — Validation ← Current
 
-Duration:
-8 weeks
+**Duration:** 2–4 weeks  
+**Doc:** [Phase 0 Plan](docs/validation/phase-0-plan.md)
 
-Goal:
+### Goals
 
-Launch first paying version.
+- Interview 20 independent psychologists
+- Interview 5 therapy center admins (signal only)
+- Validate pricing (RD$700–1,200/month)
+- Confirm MVP feature priorities via workflow interviews
 
-Features:
+### Deliverables
 
-## Authentication
+- Customer interview notes
+- Updated [hypothesis log](docs/validation/hypothesis-log.md)
+- Confirmed MVP scope
+- 3 pilot customer commitments
 
-- Login
-- Registration
+### Success Criteria (Gate to Phase 1)
 
-## Patients
-
-- CRUD
-- Search
-- Archive
-
-## Scheduling
-
-- Calendar
-- Recurring sessions
-- Reschedule
-
-## Notes
-
-- Session notes
-- Patient history
-
-## Payments
-
-- Track payments
-- Revenue dashboard
-
-## WhatsApp
-
-- Appointment reminders
-
-Success Metrics:
-
-10 paying psychologists
-
-MRR > $100
+| Criterion | Target |
+|-----------|--------|
+| Psychologists expressing interest | ≥ 10 |
+| Pilot commitments | ≥ 3 |
+| Pricing validated | Majority accept RD$700–1,200/month |
+| WhatsApp as reminder channel | Confirmed by majority |
 
 ---
 
-# Phase 2 - Product Market Fit
+## Phase 1 — MVP
 
-Duration:
-3 months
+**Duration:** 8 weeks  
+**Depends on:** Phase 0 gate passed  
+**Doc:** [MVP Scope](docs/product/mvp-scope.md)
 
-Features:
+### Goal
 
-## Smart Waitlist
+Launch first paying version for solo psychologists.
 
-Automatic slot recovery
+### Features
 
-## Advanced Reporting
+| Area | Scope |
+|------|-------|
+| Auth | Login, registration (email + Google) |
+| Patients | CRUD, search, archive |
+| Scheduling | Calendar, recurring, reschedule, cancel |
+| Notes | Session notes, patient history, encryption |
+| Payments | Track payments, revenue dashboard |
+| WhatsApp | Appointment reminders (24h, 2h) |
 
-Revenue
-Attendance
-No-shows
+### Success Metrics
 
-## Multi-user Accounts
-
-Assistant access
-
-## Mobile Improvements
-
-Responsive UX
-
-Success Metrics:
-
-50 customers
-
-MRR > $1,000
+- 10 paying psychologists
+- MRR > $100 USD
 
 ---
 
-# Phase 3 - Therapy Centers
+## Phase 2 — Product-Market Fit
 
-Duration:
-3 months
+**Duration:** 3 months  
+**Depends on:** Phase 1 launched with paying customers
 
-Features:
+### Features
 
-## Organizations
+- **Smart Waitlist** — automatic slot recovery (killer feature)
+- Advanced reporting — revenue, attendance, no-shows
+- Multi-user accounts — assistant access
+- Mobile UX improvements
 
-Multiple therapists
+### Success Metrics
 
-## Rooms
-
-Room management
-
-## Admin Dashboard
-
-Center analytics
-
-## Therapist Reports
-
-Productivity tracking
-
-Success Metrics:
-
-10 centers onboarded
-
-MRR > $3,000
+- 50 customers
+- MRR > $1,000
 
 ---
 
-# Phase 4 - Marketplace
+## Phase 3 — Therapy Centers
 
-Duration:
-6 months
+**Duration:** 3 months  
+**Depends on:** Phase 2 PMF signals  
+**Doc:** [Center Workflows (future)](docs/future/therapy-center-workflows.md)
 
-Goal:
+### Features
 
-Acquire patients for therapists
+- Organizations — multiple therapists per center
+- Room management
+- Admin dashboard — center analytics
+- Therapist productivity reports
 
-Features:
+### Success Metrics
 
-## Public Profiles
-
-Therapist listings
-
-## Search
-
-By specialty
-
-## Booking
-
-Direct scheduling
-
-## Reviews
-
-Patient feedback
-
-Revenue:
-
-Commission model
-
-Success Metrics:
-
-500 monthly bookings
-
-MRR > $8,000
+- 10 centers onboarded
+- MRR > $3,000
 
 ---
 
-# Phase 5 - Teletherapy
+## Phase 4 — Marketplace
 
-Duration:
-4 months
+**Duration:** 6 months  
+**Depends on:** Sufficient therapist supply from Phases 1–3
 
-Features:
+### Goal
 
-## Video Sessions
+Acquire patients for therapists.
 
-Built-in telehealth
+### Features
 
-## Secure Chat
+- Public therapist profiles
+- Search by specialty
+- Direct online booking
+- Patient reviews
 
-Patient communication
+### Revenue
 
-## File Sharing
+Commission per booking
 
-Documents and exercises
+### Success Metrics
 
-Success Metrics:
-
-20% of sessions online
-
----
-
-# Phase 6 - AI Layer
-
-Duration:
-Ongoing
-
-Features:
-
-## AI Notes
-
-Session summaries
-
-## AI Insights
-
-Practice recommendations
-
-## AI Scheduling
-
-Optimization
-
-## AI Assistant
-
-Patient management support
-
-Success Metrics:
-
-30% feature adoption
-
-Premium upsell conversion > 10%
+- 500 monthly bookings
+- MRR > $8,000
 
 ---
 
-# Phase 7 - Latin America Expansion
+## Phase 5 — Teletherapy
 
-Countries:
+**Duration:** 4 months  
+**Depends on:** Stable marketplace or strong therapist base
 
-- Dominican Republic
-- Colombia
-- Mexico
-- Chile
+### Features
 
-Features:
+- Video sessions (built-in telehealth)
+- Secure patient chat
+- File sharing (documents, exercises)
 
-- Localization
-- Multi-currency
-- Regional compliance
+### Success Metrics
 
-Goal:
+- 20% of sessions conducted online
 
-Become the leading mental health operating system for Spanish-speaking therapists.
+---
 
-Target:
+## Phase 6 — AI Layer
 
-500+ therapists
+**Duration:** Ongoing  
+**Depends on:** Sufficient note volume and user trust
 
-50+ centers
+### Features
 
-$20k-$50k MRR
+- AI session summaries
+- Practice insights and recommendations
+- Scheduling optimization
+- Patient management assistant
+
+### Success Metrics
+
+- 30% feature adoption
+- Premium upsell conversion > 10%
+
+---
+
+## Phase 7 — Latin America Expansion
+
+**Countries:** Dominican Republic → Colombia → Mexico → Chile
+
+### Features
+
+- Localization (language, formats)
+- Multi-currency billing
+- Regional compliance (data protection)
+
+### Goal
+
+Leading mental health operating system for Spanish-speaking therapists.
+
+### Target
+
+- 500+ therapists
+- 50+ centers
+- $20k–$50k MRR
+
+---
+
+## Phase Dependencies
+
+```mermaid
+flowchart LR
+    P0[Phase 0\nValidation] --> P1[Phase 1\nMVP]
+    P1 --> P2[Phase 2\nPMF]
+    P2 --> P3[Phase 3\nCenters]
+    P2 --> P4[Phase 4\nMarketplace]
+    P3 --> P4
+    P4 --> P5[Phase 5\nTeletherapy]
+    P5 --> P6[Phase 6\nAI]
+    P4 --> P6
+    P6 --> P7[Phase 7\nLATAM]
+```
+
+---
+
+## Business Model by Phase
+
+| Phase | Revenue model |
+|-------|---------------|
+| 1–3 | SaaS subscription (individual + center plans) |
+| 4+ | SaaS + marketplace commission |
+| 6+ | SaaS + commission + AI premium tier |

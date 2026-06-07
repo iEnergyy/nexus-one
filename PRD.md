@@ -1,301 +1,162 @@
-# PRD - NexusOne
+# PRD — NexusOne
 
-Version: 1.0
-Status: Draft
-Owner: nrg
-
----
-
-# Executive Summary
-
-NexusOne is a SaaS platform designed for psychologists and therapy centers in the Dominican Republic, starting in Santo Domingo.
-
-The platform helps therapists manage:
-
-- Patients
-- Appointments
-- Session notes
-- Payments
-- WhatsApp reminders
-
-The long-term vision is to become the operating system for mental health professionals in Latin America by combining practice management software with patient acquisition through a therapist marketplace.
+**Version:** 1.1  
+**Status:** Draft — Phase 0 Validation  
+**Owner:** nrg  
+**Last updated:** 2026-06-07
 
 ---
 
-# Problem Statement
+## Executive Summary
 
-Most psychologists currently manage their practice using:
+NexusOne is a SaaS platform for psychologists and therapy centers in the Dominican Republic, starting in Santo Domingo. It helps therapists manage patients, appointments, session notes, payments, and WhatsApp reminders from a single platform.
 
-- WhatsApp
-- Google Calendar
-- Excel
-- Paper notes
+**Primary customer:** Independent psychologist (20–100 patients, WhatsApp-heavy workflow)  
+**Long-term vision:** Operating system for mental health professionals in Latin America, with a therapist marketplace for patient acquisition.
 
-This causes:
-
-- Missed appointments
-- Revenue loss from no-shows
-- Fragmented patient records
-- Poor financial visibility
-- Administrative overhead
-
-Therapy centers face additional challenges:
-
-- Managing multiple therapists
-- Room scheduling
-- Centralized reporting
+**Current phase:** Phase 0 — validating demand, pricing, and MVP scope via customer interviews. See [Phase 0 Plan](docs/validation/phase-0-plan.md).
 
 ---
 
-# Vision
+## Problem
 
-Become the leading mental health practice management platform in Latin America.
+Psychologists manage their practice with WhatsApp, Google Calendar, Excel, and paper notes. This causes missed appointments, revenue loss from no-shows, fragmented records, poor financial visibility, and administrative overhead.
 
-Start:
-
-- Independent psychologists
-- Small therapy centers
-
-Expand:
-
-- Teletherapy
-- Marketplace
-- Insurance integrations
-- AI-assisted workflows
+Full analysis: [Problem Statement](docs/product/problem-statement.md)
 
 ---
 
-# Target Customers
+## Personas
 
-## Primary
-
-Independent psychologists
-
-Characteristics:
-
-- 20-100 active patients
-- Private practice
-- Uses WhatsApp heavily
+| Persona | Priority | Doc |
+|---------|----------|-----|
+| Dr. Ana — Solo psychologist | Primary (MVP) | [Personas](docs/product/personas.md) |
+| María — Center administrator | Future (Phase 3) | [Future Workflows](docs/future/therapy-center-workflows.md) |
 
 ---
 
-## Secondary
+## Core Workflows
 
-Therapy centers
-
-Characteristics:
-
-- 3-30 therapists
-- Shared rooms
-- Administrative staff
+| Workflow | Description | Doc |
+|----------|-------------|-----|
+| Daily practice loop | Schedule → session → note → payment | [Workflow](docs/workflows/daily-practice-loop.md) |
+| Patient lifecycle | Intake → recurring sessions → archive | [Workflow](docs/workflows/patient-lifecycle.md) |
+| Cancellation & waitlist | Reminders → cancel → slot recovery | [Workflow](docs/workflows/cancellation-waitlist.md) |
 
 ---
 
-# Success Metrics
+## MVP Features (Phase 1)
 
-## Business
+Full scope and out-of-scope list: [MVP Scope](docs/product/mvp-scope.md)
 
-MRR
-Customer Acquisition Cost
-Churn Rate
-Customer Lifetime Value
+### Patient Management
 
----
+- Create, search, and archive patient profiles
+- Store: full name, contact info, emergency contact, session history
 
-## Product
+**Acceptance criteria:** Therapist can create, search, and archive patients.
 
-Active psychologists
-Appointments created
-Notes created
-Reminder delivery rate
-No-show reduction
+### Scheduling
 
----
+- Calendar (day/week view)
+- Single and recurring appointments
+- Reschedule and cancel
 
-# Core MVP Features
+**Acceptance criteria:** Calendar loads < 2 seconds; recurring appointments supported.
 
-## Patient Management
+### Session Notes
 
-### Requirements
+- Private notes per session: summary, homework, next steps
+- Encrypted at rest; searchable
 
-Create patient profiles
+**Acceptance criteria:** Notes are encrypted and searchable.
 
-Store:
+### Payments
 
-- Full name
-- Contact information
-- Emergency contact
-- Session history
-- Documents
+- Session price tracking; payment status (paid / pending / waived)
+- Monthly revenue dashboard; outstanding balance view
 
-### Acceptance Criteria
+**Acceptance criteria:** Revenue and outstanding balance dashboards functional.
 
-- Therapist can create patient
-- Therapist can search patient
-- Therapist can archive patient
+### WhatsApp Reminders
+
+- Automatic reminders at 24 hours and 2 hours before appointment
+- Configurable templates; delivery tracking
+
+**Acceptance criteria:** Delivery tracked; templates configurable.
 
 ---
 
-## Scheduling
+## Killer Feature (Phase 2 — Not MVP)
 
-### Requirements
+### Smart Waitlist
 
-Calendar system
+Automatically recovers cancelled appointment slots by notifying waitlisted patients via WhatsApp. First to accept gets the slot.
 
-Support:
+**Flow:** Cancel → open slot detected → waitlist queried → WhatsApp sent → first accept wins  
+**Metric:** Recovered appointments per month
 
-- Single appointment
-- Recurring appointment
-- Rescheduling
-- Cancellation
-
-### Acceptance Criteria
-
-- Calendar loads under 2 seconds
-- Recurring appointments supported
+See [Cancellation & Waitlist workflow](docs/workflows/cancellation-waitlist.md).
 
 ---
 
-## Session Notes
+## Security
 
-### Requirements
-
-Create private notes for sessions
-
-Store:
-
-- Session summary
-- Homework
-- Next steps
-
-### Acceptance Criteria
-
-- Notes are encrypted
-- Notes searchable
+- Role-based access (single therapist in MVP)
+- Encrypted: session notes, patient information
+- Audit logging
+- Authentication: email + Google OAuth
 
 ---
 
-## Payments
+## Non-Functional Requirements
 
-### Requirements
-
-Track:
-
-- Session price
-- Payment status
-- Revenue
-
-### Acceptance Criteria
-
-- Monthly revenue dashboard
-- Outstanding balance dashboard
+| Requirement | Target |
+|-------------|--------|
+| Availability | 99.9% |
+| API response | < 500ms |
+| Page load | < 2 seconds |
+| Mobile | Responsive required |
 
 ---
 
-## WhatsApp Reminders
+## Success Metrics
 
-### Requirements
+### Business
+MRR · Customer acquisition cost · Churn rate · Customer lifetime value
 
-Automatic reminders
+### Product
+Active psychologists · Appointments created · Notes created · Reminder delivery rate · No-show reduction
 
-Examples:
+### Phase 0 Validation Gate
+≥ 10 interested psychologists · ≥ 3 pilot commitments · Pricing validated
 
-- 24 hours before
-- 2 hours before
-
-### Acceptance Criteria
-
-- Delivery tracked
-- Reminder templates configurable
+Track hypotheses: [Hypothesis Log](docs/validation/hypothesis-log.md)
 
 ---
 
-# Killer Feature
+## Future Phases
 
-## Smart Waitlist
+| Phase | Focus |
+|-------|-------|
+| 2 | Smart Waitlist, reporting, assistant access |
+| 3 | Therapy centers, rooms, admin dashboard |
+| 4 | Marketplace — profiles, search, booking, reviews |
+| 5 | Teletherapy — video, chat, file sharing |
+| 6 | AI — summaries, insights, scheduling optimization |
+| 7 | LATAM expansion |
 
-Goal:
-
-Recover cancelled appointments automatically.
-
-Flow:
-
-1. Patient cancels
-2. Open slot detected
-3. Waitlist queried
-4. WhatsApp sent
-5. First patient accepts
-
-Success Metric:
-
-Recovered appointments per month
+Details: [Roadmap](ROADMAP.md) · [Vision](docs/product/vision.md)
 
 ---
 
-# Security Requirements
+## Validation Status
 
-Role-based access
+| Item | Status |
+|------|--------|
+| Psychologist interviews (0/20) | Not started |
+| Center admin interviews (0/5) | Not started |
+| Hypothesis log | [Seed hypotheses documented](docs/validation/hypothesis-log.md) |
+| Go/no-go decision | Pending |
 
-Encrypted:
-
-- Session notes
-- Documents
-- Patient information
-
-Audit logging
-
-Authentication:
-
-- Email
-- Google Login
-
----
-
-# Non-Functional Requirements
-
-Availability:
-99.9%
-
-API Response:
-< 500ms
-
-Page Load:
-< 2 seconds
-
-Mobile Responsive:
-Required
-
----
-
-# Future Features
-
-## Phase 2
-
-- Multi-therapist centers
-- Room management
-- Admin dashboards
-
----
-
-## Phase 3
-
-- Teletherapy
-- Video calls
-- Online booking
-
----
-
-## Phase 4
-
-- Therapist marketplace
-- Reviews
-- Discovery
-- Commission-based bookings
-
----
-
-## Phase 5
-
-- AI session summaries
-- AI treatment recommendations
-- AI practice insights
+Update this table as Phase 0 progresses.
